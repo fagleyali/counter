@@ -2,7 +2,7 @@ import React from "react";
 
 const Counter = props => {
   const { counter, handleDelete, handleIncrement, handleDecrement } = props;
-  
+
   const formatCount = () => {
     return counter.value === 0 ? "Zero" : counter.value;
   };
@@ -18,19 +18,19 @@ const Counter = props => {
         {formatCount()}
       </span>
       <button
-        onClick={()=> handleIncrement(counter.id)}
+        onClick={() => handleIncrement(counter.id)}
         className="btn btn-secondary btn-sm m-2"
       >
         Increment
       </button>
       <button
-        onClick={ ()=> handleDelete(counter.id)}
+        onClick={() => handleDelete(counter.id)}
         className="btn btn-danger btn-sm m-2"
       >
         Delete
       </button>
       <button
-        onClick={()=> handleDecrement(counter.id)}
+        onClick={() => handleDecrement(counter.id)}
         className="btn btn-secondary btn-sm m-2"
         disabled={counter.value === 0}
       >

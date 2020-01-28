@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import './App.css';
-import Counters from './components/counters';
-
+import React, { useState } from "react";
+import "./App.css";
+import Counters from "./components/counters";
 
 function App() {
   const initialState = {
@@ -17,11 +16,11 @@ function App() {
 
   const handleReset = () => {
     const counters = state.counters.map(counter => {
-        counter.value = 0;
-        return counter;
-    })
+      counter.value = 0;
+      return counter;
+    });
     setState({ counters });
-  }
+  };
 
   const handleIncrement = id => {
     const counters = state.counters.map(counter => {
@@ -29,7 +28,7 @@ function App() {
         counter.value = counter.value + 1;
       }
       return counter;
-    })
+    });
     setState({ counters });
   };
 
@@ -39,17 +38,23 @@ function App() {
         counter.value = counter.value - 1;
       }
       return counter;
-    })
+    });
     setState({ counters });
   };
 
-  const handleDelete = (id) => {
-    const updatedCounters = state.counters.filter(counter => counter.id !== id)
-    setState({ counters: updatedCounters })
-  }
+  const handleDelete = id => {
+    const updatedCounters = state.counters.filter(counter => counter.id !== id);
+    setState({ counters: updatedCounters });
+  };
   return (
-    <div >
-      <Counters counters={state.counters} handleDelete={handleDelete} handleDecrement={handleDecrement} handleIncrement={handleIncrement} handleReset={handleReset} />
+    <div>
+      <Counters
+        counters={state.counters}
+        handleDelete={handleDelete}
+        handleDecrement={handleDecrement}
+        handleIncrement={handleIncrement}
+        handleReset={handleReset}
+      />
     </div>
   );
 }
