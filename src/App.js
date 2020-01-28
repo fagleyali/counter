@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./App.css";
 import Counters from "./components/counters";
+import NavBar from './components/navBar';
+import "./App.css";
 
 function App() {
   const initialState = {
@@ -46,16 +47,27 @@ function App() {
     const updatedCounters = state.counters.filter(counter => counter.id !== id);
     setState({ counters: updatedCounters });
   };
+
+  const getTotalValue = () => {
+    let totalVal = 0;
+    state.counters.map(counter => {
+      return totalVal += counter.value;
+    })
+    return totalVal;
+  }
   return (
-    <div>
-      <Counters
-        counters={state.counters}
-        handleDelete={handleDelete}
-        handleDecrement={handleDecrement}
-        handleIncrement={handleIncrement}
-        handleReset={handleReset}
-      />
-    </div>
+    <React.Fragment>
+      <NavBar totalVal={getTotalValue()} />
+      <div className="container">
+        <Counters
+          counters={state.counters}
+          handleDelete={handleDelete}
+          handleDecrement={handleDecrement}
+          handleIncrement={handleIncrement}
+          handleReset={handleReset}
+        />
+      </div>
+    </React.Fragment>
   );
 }
 

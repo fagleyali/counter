@@ -13,7 +13,7 @@ const Counters = props => {
   return (
     <React.Fragment>
       <div>
-        <button onClick={handleReset} className="btn btn-primary btn-md m-2">
+        <button onClick={handleReset} className="btn btn-primary btn-sm m-2">
           Reset
         </button>
         {counters &&
